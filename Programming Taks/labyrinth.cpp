@@ -11,8 +11,6 @@ int n, m;
 char A[1000][1000];
 bool vis[1000][1000];
 
-// previousStep stores the previous direction that we moved in to arrive that
-// this cell
 int previousStep[1000][1000];
 
 // 0 = up, 1 = right, 2 = down, 3 = left
@@ -59,8 +57,7 @@ int main() {
 		while (end != begin) {
 			int p = previousStep[end.f][end.s];
 			steps.push_back(p);
-			// undo the previous step to get back to the previous square
-			// Notice how we subtract dx/dy, whereas we added dx/dy before
+			
 			end = mp(end.f - dx[p], end.s - dy[p]);
 		}
 		reverse(steps.begin(), steps.end());
